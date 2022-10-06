@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Word game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="C:\Users\rajap\Desktop\Project\Project 1 (Word Game)\style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>FIND THE WORD</h1>
+    <!-- This div element is to display the rules of the game-->
+    <div id="rulesblock">
+        <h2>Rules of the game</h2>
+        <p class="rules">
+            In each box there is a shuffled word and a question clue to get the correct word. Read the question carefully and type the correct answer in the textbox. After filling out answers for all the questions click submit to know your score.
+        </p>
+    </div>
+    <!--This div is the container block for all questions answer area i.e PUZZLE area-->
+          <div class="containerdiv">
+              <!-- This div element is for 1st question-->
+              <div class="segment2" id="q1">
+                  <p class="word">KBAUHIRJAFL</p>
+                  <p class="clue">Tallest building in the world</p>
+                  <input type="text" name="ans" class="text" id="q1answer" />
+              </div>
+              <!-- This div element is for 2nd question-->
+              <div class="segment2" id="q2">
+                  <p class="word">MYAIRPD</p>
+                  <p class="clue">Egypt is popular for this</p>
+                  <input type="text" name="ans" class="text" id="q2answer" />
+              </div>
+              <!-- This div element is for 3rd question-->
+              <div class="segment2" id="q3">
+                  <p class="word">SAURATLAI</p>
+                  <p class="clue">One of seven continents</p>
+                  <input type="text" name="ans" class="text" id="q3answer" />
+              </div>
+              <!-- This div element is for 4th question-->
+              <div class="segment2" id="q4">
+                  <p class="word">RDFACFI</p>
+                  <p class="clue">Capital of Wales </p>
+                  <input type="text" name="ans" class="text" id="q4answer" />
+              </div>
+              <!-- This div element is for 5th question-->
+              <div class="segment2" id="q5">
+                  <p class="word">AFIRAC</p>
+                  <p class="clue">Nile river runs through</p>
+                  <input type="text" name="ans" class="text" id="q5answer" />
+              </div>
+              <!-- This div element is for 6th question-->
+              <div class="segment2" id="q6">
+                  <p class="word">UISARS</p>
+                  <p class="clue">Largest country by area</p>
+                  <input type="text" name="ans" class="text" id="q6answer" />
+              </div>
+              <!-- This div element is for 7th question-->
+              <div class="segment2" id="q7">
+                  <p class="word">ADANAC </p>
+                  <p class="clue">Longest coastline in the world</p>
+                  <input type="text" name="ans" class="text" id="q7answer" />
+              </div>
+              <!-- This div element is for 8th question-->
+              <div class="segment2" id="q8">
+                  <p class="word">CSTOANDL</p>
+                  <p class="clue">Unicorn is a national animal here</p>
+                  <input type="text" name="ans" class="text" id="q8answer" />
+              </div>
+              <!-- This div element is for 9th question-->
+              <div class="segment2" id="q9">
+                  <p class="word">ANDLERENG</p>
+                  <p class="clue">Largest island in the world</p>
+                  <input type="text" name="ans" class="text" id="q9answer" />
+              </div>
+              <!-- This div element is for 10th question-->
+              <div class="segment2" id="q10">
+                  <p class="word">ERECGE</p>
+                  <p class="clue">First mordern olympics held here</p>
+                  <input type="text" name="ans" class="text" id="q10answer" />
+              </div>
+
+              <!-- Button to Open the Modal -->
+              <button type="button" id="myBtn" onclick="print()" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                  CHECK ANSWERS
+              </button>
+            </div>
+
+              <!-- The Modal -->
+              <div class="modal fade" data-backdrop="false" id="myModal">
+                  <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                              <h4 class="modal-title">YOUR RESULT</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                              <p id="printResult"></p>
+                          </div>
+
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                          </div>
+
+                      </div>
+                  </div>
+
+                  </div>
+           
+    <script>
+        function print() {
+           //document.getElementById('printResult').innerHTML = 'heloo';
+            //this is the array for correct answer
+           var answers = ["burj khalifa", "pyramid", "australia", "cardiff", "africa", "russia", "canada", "scotland",
+                "greenland", "greece"];
+          
+            //other variables declaration
+            var inputAnswers = [];
+            var wrong = 0;
+            var correct = 0;
+
+            //statements to recive userinput and push it into an array for comparison
+            var answer1 = document.getElementById('q1answer').value;
+            var answer2 = document.getElementById('q2answer').value;
+            var answer3 = document.getElementById('q3answer').value;
+            var answer4 = document.getElementById('q4answer').value;
+            var answer5 = document.getElementById('q5answer').value;
+            var answer6 = document.getElementById('q6answer').value;
+            var answer7 = document.getElementById('q7answer').value;
+            var answer8 = document.getElementById('q8answer').value;
+            var answer9 = document.getElementById('q9answer').value;
+            var answer10 = document.getElementById('q10answer').value;
+            inputAnswers.push(answer1.toLowerCase());
+            inputAnswers.push(answer2.toLowerCase());
+            inputAnswers.push(answer3.toLowerCase());
+            inputAnswers.push(answer4.toLowerCase());
+            inputAnswers.push(answer5.toLowerCase());
+            inputAnswers.push(answer6.toLowerCase());
+            inputAnswers.push(answer7.toLowerCase());
+            inputAnswers.push(answer8.toLowerCase());
+            inputAnswers.push(answer9.toLowerCase());
+            inputAnswers.push(answer10.toLowerCase());
+
+            console.log('correct answer', answers);
+            console.log('your answers', inputAnswers);
+            for (j = 0; j < answers.length; j++) {
+                if (answers[j] == inputAnswers[j]) { correct++; }
+            }
+
+            if (answers == inputAnswers) {
+                document.getElementById('printResult').innerHTML = 'Well done!! You have guessed all the words';
+            }
+            else if (answers[0] != inputAnswers[0] && answers[1] != inputAnswers[1] && answers[2] != inputAnswers[2] && answers[3] != inputAnswers[3] && answers[4] != inputAnswers[4] && answers[5] != inputAnswers[5] && answers[6] != inputAnswers[6] && answers[7] != inputAnswers[7] && answers[8] != inputAnswers[8] && answers[9] != inputAnswers[9])
+                {
+                    document.getElementById('printResult').innerHTML = 'Your guesses are wrong. Try again';
+                }
+            else{
+                document.getElementById('printResult').innerHTML = 'You have guessed' + correct + ' out of 10. Good Job';
+            }
+            
+           
+        }
+        
+    </script>
+</body>
+</html>
